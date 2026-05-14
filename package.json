@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sathishmass.github.io/SathishProfile",
+  "homepage": "https://sathishrameshkumar.github.io/sathishportfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
