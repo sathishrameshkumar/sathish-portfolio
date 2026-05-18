@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+
+import emailjs from "@emailjs/browser";
 
 import {
   FaEnvelope,
@@ -11,6 +14,51 @@ import {
 } from "react-icons/fa";
 
 function Contact() {
+
+  const form = useRef();
+
+  const [loading, setLoading] = useState(false);
+
+  const [success, setSuccess] = useState("");
+
+  const sendEmail = (e) => {
+
+  e.preventDefault();
+
+  setLoading(true);
+
+ emailjs
+  .sendForm(
+  "service_r8xk29p",
+  "template_9fjd83a",
+  form.current,
+  "kJH78sdFGhjk998"
+)
+    .then(
+      () => {
+
+        setLoading(false);
+
+        setSuccess("Message Sent Successfully!");
+
+        form.current.reset();
+
+        setTimeout(() => {
+          setSuccess("");
+        }, 4000);
+      },
+
+      (error) => {
+
+        setLoading(false);
+
+        setSuccess("Failed To Send Message");
+
+        console.log("EMAIL ERROR:", error);
+      }
+    );
+};
+
   return (
     <section
       id="contact"
@@ -160,21 +208,27 @@ function Contact() {
             <div className="flex flex-wrap gap-4 sm:gap-6 pt-4">
 
               <a
-                href="#"
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-cyan-500/10 flex items-center justify-center text-xl sm:text-2xl text-white hover:bg-cyan-500 hover:text-black transition duration-300"
               >
                 <FaGithub />
               </a>
 
               <a
-                href="#"
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-cyan-500/10 flex items-center justify-center text-xl sm:text-2xl text-white hover:bg-cyan-500 hover:text-black transition duration-300"
               >
                 <FaLinkedin />
               </a>
 
               <a
-                href="#"
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/5 border border-cyan-500/10 flex items-center justify-center text-xl sm:text-2xl text-white hover:bg-cyan-500 hover:text-black transition duration-300"
               >
                 <FaInstagram />
@@ -192,53 +246,81 @@ function Contact() {
             className="bg-white/5 backdrop-blur-lg border border-cyan-500/10 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-lg"
           >
 
-            <form className="space-y-8">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="space-y-8"
+            >
 
               {/* NAME */}
               <div>
+
                 <label className="text-white block mb-3 text-base sm:text-lg font-medium">
                   Your Name
                 </label>
 
                 <input
                   type="text"
+                  name="from_name"
+                  required
                   placeholder="Enter your name"
                   className="w-full bg-slate-900 border border-cyan-500/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white outline-none focus:border-cyan-400 transition duration-300"
                 />
+
               </div>
 
               {/* EMAIL */}
               <div>
+
                 <label className="text-white block mb-3 text-base sm:text-lg font-medium">
                   Email Address
                 </label>
 
                 <input
                   type="email"
+                  name="from_email"
+                  required
                   placeholder="Enter your email"
                   className="w-full bg-slate-900 border border-cyan-500/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white outline-none focus:border-cyan-400 transition duration-300"
                 />
+
               </div>
 
               {/* MESSAGE */}
               <div>
+
                 <label className="text-white block mb-3 text-base sm:text-lg font-medium">
                   Message
                 </label>
 
                 <textarea
                   rows="6"
+                  name="message"
+                  required
                   placeholder="Write your message..."
                   className="w-full bg-slate-900 border border-cyan-500/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 text-white outline-none focus:border-cyan-400 transition duration-300 resize-none"
                 ></textarea>
+
               </div>
+
+              {/* SUCCESS MESSAGE */}
+              {success && (
+
+                <div className="text-center text-cyan-400 font-semibold">
+                  {success}
+                </div>
+
+              )}
 
               {/* BUTTON */}
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-cyan-500 hover:bg-cyan-600 py-3 sm:py-4 rounded-2xl text-base sm:text-lg font-semibold transition duration-300 shadow-lg shadow-cyan-500/20"
               >
-                Send Message
+
+                {loading ? "Sending..." : "Send Message"}
+
               </button>
 
             </form>
