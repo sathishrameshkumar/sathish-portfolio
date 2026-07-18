@@ -48,11 +48,33 @@ function Navbar() {
           </li>
 
           <li>
+              <a
+                href="#deployment"
+                className="relative hover:text-cyan-400 transition duration-300 group"
+              >
+                Deployment & Tools
+
+                <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+
+          <li>
             <a
               href="#projects"
               className="relative hover:text-cyan-400 transition duration-300 group"
             >
               Projects
+
+              <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#gallery"
+              className="relative hover:text-cyan-400 transition duration-300 group"
+            >
+              Gallery
 
               <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -68,6 +90,7 @@ function Navbar() {
               <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
+          
 
         </ul>
 
@@ -111,8 +134,20 @@ function Navbar() {
               </li>
 
               <li>
+                <a href="#deployment" onClick={() => setMenuOpen(false)}>
+                  Deployment & Tools
+                </a>
+              </li>
+
+              <li>
                 <a href="#projects" onClick={() => setMenuOpen(false)}>
                   Projects
+                </a>
+              </li>
+
+              <li>
+                <a href="#gallery" onClick={() => setMenuOpen(false)}>
+                  Gallery
                 </a>
               </li>
 

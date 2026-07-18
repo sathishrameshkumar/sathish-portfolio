@@ -4,7 +4,9 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
+import Deployment from "./components/Deployment";
 import Projects from "./components/Projects";
+import ProjectGallery from "./components/ProjectGallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -43,7 +45,11 @@ function App() {
 
           <Skills />
 
+          <Deployment />
+
           <Projects />
+
+          <ProjectGallery />
 
           <Contact />
 

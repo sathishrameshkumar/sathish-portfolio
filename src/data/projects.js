@@ -1,5 +1,5 @@
 import project1 from "../assets/projects/project1.png";
-import project2 from "../assets/projects/project2.png";
+import project2 from "../assets/projects/img1.png";
 import project3 from "../assets/projects/project3.png";
 import project4 from "../assets/projects/project4.png";
 import project5 from "../assets/projects/project5.png";
@@ -72,6 +72,23 @@ const projects = [
     "Developed a complete Meta WhatsApp API platform for business communication and customer engagement. The system supports WhatsApp template creation, approval workflow, real-time messaging, media templates (Text, Image, Video, PDF Documents), dynamic variables, template synchronization with Meta Cloud API, message automation, delivery tracking, and customer chat management. Implemented advanced features like template editing, status filtering, media handling, and interactive button support using modern frontend technologies.",
 
   technologies: ["ReactJS","Tailwind CSS","Framer Motion","Laravel","SQLServe","PHP","Meta Cloud API","WhatsApp Business API"],
+},
+{
+  images: [project5],
+
+  title: "QR Code Generator & Barcode Generator",
+
+  description:
+    "Developed a complete QR Code and Barcode Generator platform that enables users to generate QR codes and barcodes instantly with real-time preview, customization options, and downloadable image export functionality. The application supports text, URLs, contact information, Wi-Fi credentials, and multiple data formats with a modern responsive user interface built using ReactJS, Vite, Tailwind CSS, and Framer Motion.",
+
+  technologies: [
+    "ReactJS",
+    "Vite",
+    "Tailwind CSS",
+    "Framer Motion",
+  ],
+
+  demoLink: "https://sathishrameshkumar.github.io/QRCodeGenerator/",
 },
 
  
